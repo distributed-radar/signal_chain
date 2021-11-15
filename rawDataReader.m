@@ -103,7 +103,6 @@ function rawDataReader(setupJsonFileName, rawDataFileName, radarCubeDataFileName
     fprintf('mmwave Device:%s\n', setupJSON.mmWaveDevice);
 
     % Read bin file name
-    binFilePath = setupJSON.capturedFiles.fileBasePath;
     numBinFiles = length(setupJSON.capturedFiles.files);
     if( numBinFiles < 1)
         error('Bin File is not available');
@@ -111,7 +110,7 @@ function rawDataReader(setupJsonFileName, rawDataFileName, radarCubeDataFileName
     Params.numBinFiles = numBinFiles;
 
     for idx=1:numBinFiles
-        binFileName{idx} = strcat(binFilePath, '\', setupJSON.capturedFiles.files(idx).processedFileName);
+        binFileName{idx} = strcat(setupJSON.capturedFiles.files(idx).processedFileName);
     end
 
     % Generate ADC data parameters
