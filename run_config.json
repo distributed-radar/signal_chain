@@ -1,0 +1,10 @@
+{
+    "setupJsonFileName": "ReadDataTest.setup.json",
+    "signalConfigJsonFileName": "ReadDataTest.mmwave.json",
+    "binFilenames": [
+        "singleframe_MIMO.bin"
+    ],
+    "rawDataFileName": "adcRawData",
+    "radarCubeDataFileName": "radarCube",
+    "createDebugPlot": false
+}
