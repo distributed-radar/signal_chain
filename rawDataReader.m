@@ -202,7 +202,7 @@ function dp_exportData(rawDataFileName, radarCubeDataFileName)
     if ((~strcmp(rawDataFileName, '')) || (~strcmp(rawDataFileName, '')))
         for frameIdx=1:Params.NFrame
             dp_updateFrameData(frameIdx);
-            rawADCData{frameIdx} = dataSet.rawDataUint16;
+            rawADCData{frameIdx} = dataSet.rawDataInt16;
             radarCubeData{frameIdx} = single(dataSet.radarCubeData);
         end
     end
@@ -261,8 +261,8 @@ function dp_updateFrameData(frameIdx)
         % Load raw data from bin file
         rawDataComplex = dp_loadOneFrameData(Params.fid_rawData(fidIdx), Params.dataSizeOneFrame, frameIdx - currFrameIdx);
 
-        % Read in raw data in uint16
-        dataSet.rawDataUint16 = uint16(rawDataComplex);
+        % Read in raw data in int16
+        dataSet.rawDataInt16 = int16(rawDataComplex);
 
         % time domain data y value adjustments
         timeDomainData = rawDataComplex - ( rawDataComplex >=2.^15).* 2.^16;
